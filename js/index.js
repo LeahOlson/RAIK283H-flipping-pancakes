@@ -79,5 +79,6 @@ $(document).ready(function () {
 
 	// arrange the pancakes and display the result
 	let sorted = arrangePancakes(unsorted);
+	//let sorted = flip(unsorted, unsorted.length - 1);
 	showArray(sorted, 'sortedArray');
 });

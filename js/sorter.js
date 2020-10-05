@@ -27,7 +27,14 @@ function generateRandomArray(n) {
  * array is modified), but the array is returned to the user for convenience.
  */
 function flip(arr, flipIndex) {
-	// function logic left as an exercise
+	for(let i = 0; i < (flipIndex / 2); i++) {
+		let top = arr[i];
+		let bottom = arr[flipIndex - i];
+		arr[i] = bottom;
+		arr[flipIndex - i] = top;
+	}
+
+	console.log(arr);
 	return arr;
 }
 
@@ -38,6 +45,23 @@ function flip(arr, flipIndex) {
  * but the array is returned to the user for convenience.
  */
 function arrangePancakes(arr) {
-	// function logic left as an exercise
-	return [];
+	let arrLength = arr.length;
+
+	while (arrLength > 1) {
+
+		// findMax
+		let maxIndex = 0;
+		for (let i = 0; i < arrLength; i++) {
+			if (arr[i] > arr[maxIndex]) {
+				maxIndex = i;
+			}
+		}
+
+		arr = flip(arr, maxIndex);
+		arr = flip(arr, arrLength - 1);
+
+		arrLength--;
+	}
+
+	return arr;
 }
